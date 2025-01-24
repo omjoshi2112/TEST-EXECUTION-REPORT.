@@ -12,59 +12,52 @@
 
 **MENTOR NAME**: NEELA SANTHOSH
 
-**DESCRIPTION**:  AUTOMATE THE TESTING OF A SAMPLE WEB APPLICATION’S LOGIN
+**DESCRIPTION**:  Automating Login and Navigation Using Selenium WebDriver
 
-Automating the Testing of a Sample Web Application’s Login Automated testing is an essential practice for ensuring the reliability and performance of a web application. In this case, we will walk through the process of automating the testing of a sample web application’s login feature using Selenium WebDriver, a popular tool for automating web browsers.
+Automating Login and Navigation Using Selenium WebDriver
+Setup:
 
-Prerequisites To automate the testing of the login functionality, the following tools and libraries are required:
+Install Python and required libraries: pip install selenium.
+Download the appropriate WebDriver for your browser (e.g., ChromeDriver).
+Write the Script:
 
-Selenium WebDriver: For automating browser actions. JUnit or TestNG: To run and structure tests. Maven (or Gradle): For managing dependencies. Java: Programming language for writing the test scripts. Browser Driver (e.g., ChromeDriver): Needed to interface Selenium with the browser. Step 1: Setting Up the Project To begin, set up a Java Maven project in your favorite Integrated Development Environment (IDE) such as IntelliJ IDEA or Eclipse.
+Open the web application.
+Automate login by finding the username, password fields, and login button.
+Navigate through the application by locating and interacting with elements.
+Sample Code:
 
-Add Maven dependencies: In your pom.xml file, include the following dependencies for Selenium and JUnit. xml Copy code org.seleniumhq.selenium selenium-java 4.0.0
+python
+Copy code
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
-org.junit.jupiter junit-jupiter-api 5.7.0 test Download Browser Driver: Depending on the browser you intend to use (e.g., Chrome, Firefox), download the respective WebDriver (e.g., ChromeDriver) and add it to your project’s src/main/resources folder or system path. Step 2: Writing the Test Script Create a test class for the login functionality. The script will open the browser, navigate to the login page, enter credentials, submit the form, and verify the result. java Copy code import org.junit.jupiter.api.; import org.openqa.selenium.; import org.openqa.selenium.chrome.ChromeDriver; import static org.junit.jupiter.api.Assertions.*;
-public class LoginTest // {
+# Setup WebDriver
+driver = webdriver.Chrome()  # Use the path to your WebDriver if needed
+driver.get("https://example.com/login")
 
-WebDriver driver;
+# Automate Login
+driver.find_element(By.ID, "username").send_keys("test_user")
+driver.find_element(By.ID, "password").send_keys("secure_password")
+driver.find_element(By.ID, "loginButton").click()
 
-@BeforeEach public void setUp() { // Set the path for ChromeDriver System.setProperty("webdriver.chrome.driver", "path/to/chromedriver"); driver = new ChromeDriver(); }
+# Validate Login Success
+assert "Dashboard" in driver.title
 
-@Test public void testValidLogin() { // Navigate to the login page driver.get("https://example.com/login");
+# Navigate to a Section
+driver.find_element(By.LINK_TEXT, "Profile").click()
+assert "Profile" in driver.title
 
-WebElement usernameField = driver.findElement(By.id("username"));
-WebElement passwordField = driver.findElement(By.id("password"));
-WebElement loginButton = driver.findElement(By.id("loginButton"));
+# Close the browser
+driver.quit()
+Run the Script:
 
-usernameField.sendKeys("testuser");
-passwordField.sendKeys("password123");
+Save the script as test_login.py.
+Run it using python test_login.py.
+Report Results:
 
-loginButton.click();
-assertEquals("https://example.com/dashboard", driver.getCurrentUrl());
-}
-
-@Test public void testInvalidLogin() { // Navigate to the login page driver.get("https://example.com/login");
-WebElement usernameField = driver.findElement(By.id("username"));
-WebElement passwordField = driver.findElement(By.id("password"));
-WebElement loginButton = driver.findElement(By.id("loginButton"));
-
-usernameField.sendKeys("invalidUser");
-passwordField.sendKeys("wrongPassword");
-
-loginButton.click();
-
-WebElement errorMessage = driver.findElement(By.id("errorMessage"));
-assertTrue(errorMessage.isDisplayed());
-}
-{
-@AfterEach public void tearDown() { driver.quit(); } }
-
-Step 3: Test Explanation Setup (@BeforeEach): This method initializes the WebDriver and opens a new instance of the browser before each test. Test for Valid Login: In the testValidLogin method, the script: Navigates to the login page. Locates the username, password input fields, and login button using their HTML attributes (such as id). Enters valid credentials and clicks the login button. Verifies that the user is redirected to the dashboard page. Test for Invalid Login: In the testInvalidLogin method, the script performs similar steps but enters invalid credentials and checks that an error message appears. Teardown (@AfterEach): This method closes the browser after each test to ensure no browser instances remain open.
-
-Step 4: Running the Test To execute the test, simply run the JUnit test in your IDE or use the Maven command:
-
-bash Copy code mvn test This will run both the valid and invalid login tests.
-
-Step 5: Enhancing the Test Add Assertions: You can enhance the tests by adding more detailed assertions. For example, checking for specific elements (e.g., login success message or error text) or verifying the presence of certain UI elements after login. Parameterized Testing: You can use JUnit’s @ParameterizedTest to test different sets of login credentials (valid and invalid). Handling Waits: Use WebDriverWait to handle dynamic elements or situations where page loading time may vary. Conclusion Automating the testing of a web application's login functionality with Selenium WebDriver improves efficiency, consistency, and test coverage. This simple approach to automation ensures that the login page behaves as expected under different conditions. The above steps guide you in setting up the necessary environment, writing effective test scripts, and running them for both valid and invalid login cases.
+Log successful login and navigation.
+Handle and log any errors for failed test cases.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 **DELIVERABLE: A SCRIPT REPOSITORY AND A TEST EXECUTION REPORT.**
