@@ -14,17 +14,16 @@
 
 **DESCRIPTION**:  Automating Login and Navigation Using Selenium WebDriver
 
+Setup:
 Install Python and required libraries: pip install selenium.
 Download the appropriate WebDriver for your browser (e.g., ChromeDriver).
-Write the Script:
 
+Write the Script:
 Open the web application.
 Automate login by finding the username, password fields, and login button.
 Navigate through the application by locating and interacting with elements.
-Sample Code:
 
-python
-Copy code
+Sample Code:
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
