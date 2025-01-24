@@ -54,8 +54,8 @@ Report Results:
 
 Log successful login and navigation.
 Handle and log any errors for failed test cases.
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------
+---------------------------------------------------
 **DELIVERABLE: A SCRIPT REPOSITORY AND A TEST EXECUTION REPORT.**
 
 Script Repository
@@ -84,7 +84,5 @@ A test execution report is important because it offers stakeholders (testers, de
 
 Tools like JUnit, TestNG, Selenium, and others often generate these reports automatically. The format of the report can vary depending on the tools and preferences, but common formats include HTML, PDF, and XML.
 
-Conclusion
-In short, a Script Repository serves as a secure, organized location for storing and managing test scripts, enabling collaboration and version control. Meanwhile, a Test Execution Report provides a comprehensive view of the test execution results, helping identify defects and track test progress. Both are essential components of the software testing process, ensuring efficient testing, clear communication, and a reliable product release.
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
